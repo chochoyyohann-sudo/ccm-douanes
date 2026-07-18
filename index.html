@@ -18,15 +18,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 
 /* NAV */
 .nav{background:var(--navy);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
-.nav-inner{max-width:720px;margin:0 auto;height:52px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.nav-inner{max-width:720px;margin:0 auto;padding:8px 14px 0;display:flex;flex-direction:column;gap:0}
+.nav-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
 .logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
-.logo-icon{width:28px;height:28px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.logo-icon{width:28px;height:28px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
 .logo-text{font-size:12px;font-weight:600;color:#fff}
 .logo-sub{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.4px}
-.nav-tabs{display:flex;gap:2px}
-.nav-tab{font-family:var(--font);font-size:11px;font-weight:500;padding:5px 10px;border-radius:8px;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;transition:all .15s;white-space:nowrap}
+.nav-tabs{display:flex;gap:2px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;-ms-overflow-style:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{font-family:var(--font);font-size:11px;font-weight:500;padding:6px 12px;border-radius:8px;border:none;background:transparent;color:rgba(255,255,255,.55);cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
 .nav-tab:hover{color:#fff;background:rgba(255,255,255,.08)}
-.nav-tab.on{color:#fff;background:rgba(255,255,255,.15)}
+.nav-tab.on{color:#fff;background:rgba(255,255,255,.18);font-weight:600}
 .progress-track{height:3px;background:rgba(255,255,255,.1)}
 .progress-fill{height:100%;background:var(--gold);transition:width .4s}
 
@@ -209,11 +211,30 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .end-btn-main{background:var(--navy);color:#fff}
 .end-btn-sec{background:var(--bg);color:var(--sub);border:1px solid var(--border)}
 
-@media(max-width:480px){
+@media(max-width:560px){
   .dash-grid,.end-cats{grid-template-columns:1fr}
   .stats-row{grid-template-columns:repeat(2,1fr)}
   .exam-result-stats{grid-template-columns:repeat(3,1fr)}
-  .leitner-boxes{flex-direction:column}
+  .leitner-boxes{flex-wrap:wrap}
+  .lbox{min-width:calc(50% - 6px)}
+  .main{padding:12px 12px 40px}
+  .q-text{font-size:14px}
+  .opt-text{font-size:12px}
+  .filters-inner{padding:6px 12px}
+  .fbtn{font-size:10px;padding:3px 8px}
+  .exam-timer-inner{padding:6px 12px}
+  .timer-display{font-size:18px}
+  .exam-nav-dot{width:24px;height:24px;font-size:10px}
+  .fiches-nav{gap:4px}
+  .fiche-tab{font-size:11px;padding:5px 10px}
+  .piege-card{padding:11px 12px}
+  .dc-val{font-size:24px}
+  .stat-val{font-size:16px}
+  .end-pct{font-size:40px}
+  .exam-note{font-size:44px}
+  .cat-name{width:80px;font-size:10px}
+  .hist-item{flex-wrap:wrap;gap:6px}
+  .logo-sub{display:none}
 }
 
 /* ── FICHES ─────────────────────────────── */
@@ -260,11 +281,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 
 <div class="nav">
   <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-icon">⚓</div>
-      <div>
-        <div class="logo-text">Concours C des Douanes</div>
-        <div class="logo-sub">500 questions · Annales 2022–2026</div>
+    <div class="nav-top">
+      <div class="logo">
+        <div class="logo-icon">⚓</div>
+        <div>
+          <div class="logo-text">Concours C des Douanes</div>
+          <div class="logo-sub">500 questions · Annales 2022–2026</div>
+        </div>
       </div>
     </div>
     <div class="nav-tabs">
